@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>vue elementUi安装脚手架（大全）</title>
+    <url>/2020/10/16/vue-elementUi%E5%AE%89%E8%A3%85%E8%84%9A%E6%89%8B%E6%9E%B6%EF%BC%88%E5%A4%A7%E5%85%A8%EF%BC%89/</url>
+    <content><![CDATA[<p>vue elementUi安装脚手架（大全）</p>
+<p>一.安装node.js</p>
+<p>首先需要安装node环境，可以直接到中文官网<a href="http://nodejs.cn/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85%E3%80%82">http://nodejs.cn/下载安装包。</a></p>
+<p>只是这样安装的 node 是固定版本的，如果需要多版本的 node，可以使用 nvm 安装<a href="http://blog.csdn.net/s8460049/article/details/52396399">http://blog.csdn.net/s8460049/article/details/52396399</a></p>
+<p>安装完成后，可以命令行工具中输入 node -v 和 npm -v，如果能显示出版本号，就说明安装成功。</p>
+<a id="more"></a>
+
+<p>二、安装 vue-cli</p>
+<p>安装好了 node，我们可以直接全局安装 vue-cli：</p>
+<p>npm install -g vue-cli 全局安装</p>
+<p>创建webpack项目 # vue init [vue-cli模板名称] [项目文件夹] vue init webpack my-project</p>
+<p>安装依赖：</p>
+<p>npm install</p>
+<p>三、运行项目</p>
+<p>npm run dev</p>
+<p>项目结构图</p>
+<p>四、打包上线</p>
+<p>自己的项目文件都需要放到 src 文件夹下</p>
+<p>项目开发完成之后，可以输入 npm run build 来进行打包工作</p>
+<p>npm run build</p>
+<p>打包完成后，会生成 dist 文件夹，如果已经修改了文件路径，可以直接打开本地文件查看</p>
+<p>项目上线时，只需要将 dist 文件夹放到服务器就行了。</p>
+<p>vue打包需要注意的问题：</p>
+<p>当使用 npm run build 打包完成，发现页面空白，其中有一点就是页面资源路径的问题！</p>
+<p>注意：</p>
+<p>1、记得改一下config下面的index.js中bulid模块导出的路径。因为index.html里边的内容都是通过script标签引入的，而你的路径不对，打开肯定是空白的。先看一下默认的路径。</p>
+<p>module.exports = {<br>build: {<br>env: require(’./prod.env’),<br>index: path.resolve(__dirname, ‘…/dist/index.html’),<br>assetsRoot: path.resolve(__dirname, ‘…/dist’),<br>assetsSubDirectory: ‘static’,<br>assetsPublicPath: ‘/’,<br>productionSourceMap: true,</p>
+<p>assetsPublicPath默认的是 ‘/’ 也就是根目录。而我们的index.html和static在同一级目录下面。 所以要改为 ‘./ ’</p>
+<p>五、安装element-ui</p>
+<p>1.安装命令：cnpm install element-ui –save</p>
+<p>2.在main.js中加入如下代码：</p>
+<p>import ElementUi from ‘element-ui’ //引入js</p>
+<p>import ‘…/node_modules/element-ui/lib/theme-chalk/index.css’//引入css</p>
+<p>Vue.use(ElementUI)</p>
+<p>输入命令：npm run dev 运行项目<br>这样你接可以尽情的使用element ui</p>
+<p>注意以下几个坑：</p>
+<p>1.是否引入js与css文件</p>
+<p>css文件是静态文件地址，安装教程安装地址不会出错</p>
+<p>2.检查node的版本，是否node版本过低</p>
+<p>3.检查以下你的npm版本 npm版本是否过低</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>vue项目的创建</title>
+    <url>/2020/10/16/vue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[<p>Git 常用操作</p>
+<p> 初始化/克隆 git init/clone<br> 状态 git status<br> 分支 git branch<br> 编辑 # coding<br> 添加 git add<br> 提交 git commit<br> 拉取 git pull<br> 推送 git push</p>
+<a id="more"></a>
+<p> 检出 git checkout<br> 合并 git merge<br> 回滚 git revert/reset<br> 日志 git log<br> 其他 others<br> 第三方工具 phpStorm &amp; Source Tree</p>
+<p>Git 操作 – git init/clone</p>
+<p>git init # 初始化一个空项目，只生成一个.git文件夹<br>git init lxt # 初始化一个名为lxt的空项目，并在lxt目录下生成一个.git文件夹<br>git clone <a href="https://github.com/ahulxt/mygamebase.git">https://github.com/ahulxt/mygamebase.git</a> # 克隆一个项目至当前目录<br>在本地已经创建了目录后，可以再手动关联远程仓库<br>在本地目录下关联远程repository ：<br>git remote add origin <a href="https://github.com/ahulxt/lxt.git">https://github.com/ahulxt/lxt.git</a><br>取消本地目录下关联的远程库：git remote remove origin<br>Git 操作 – 状态查看</p>
+<p>git status # 查看项目的当前编辑状态<br>(-s) =&gt; new file(A) | modified(M) | deleted(D) | no_version(??)<br>git add new_file.php READ_ME.md # 将文件1 文件2加入到缓存区</p>
+<p>Git 操作 – 推送提交<br>git pull [origin master]</p>
+<p>切记编辑和提交前要先拉代码<br>git add .</p>
+<p>添加所有变更的文件<br>git add</p>
+<p>添加指定文件<br>git status</p>
+<p>可以看到在缓存区的文件颜色变绿<br>git commit –m ‘备注内容’</p>
+<p>添加备注<br>git push [origin dev]</p>
+<p>将缓存中文件提交至远程dev分支<br>Git 操作 – 分支操作<br> git branch # 查看本地分支<br> git branch -r # 查看远程分支<br> git branch -a # 查看所有分支，包括本地分支和远程分支<br> git branch dev # 新开一个本地名为dev的分支<br> git checkout dev # 从当前分支切换至dev分支(前提是当前分支没有任何编辑操作)<br> git branch -m lxt # 将当前分支重命名为lxt(也可以用git branch –move lxt，注意是2个 - )<br> git branch -M lxt # 将当前分支强制重命名为lxt ，即使已经存在名为lxt的分支<br> git push –set-upstream origin dev # 将当前分支推送至远程服务器并在远程创建dev分支且与本地dev 分支关联起来，要创建的远程分支名称必须与本地分支名称一致<br> git branch –set-upstream-to=origin/master lxt # 将本地的lxt分支与远程的master分支关联起来<br>否则直接git pull/push会报There is no tracking information for the current branch.不需要本地和远程分支名称保持一致<br> git branch -d lxt # 删除本地的lxt分支(lxt分支不能是当前分支)</p>
+<p>Git 操作 – 删除远程分支<br>git branch demo_del</p>
+<p>创建demo_del分支用于演示<br>git checkout demo_del</p>
+<p>切换至demo_del分支<br>git push –set-upstream origin demo_del</p>
+<p>在远程仓库创建demo_del分支<br>git push origin :demo_del</p>
+<p>删除远程demo_del分支<br>git branch -a<br>再次查看所有分支，可以看到demo_del已经被删除，本地的还存在，如果想要删除本地可另行删除(git branch -d demo_del)<br>Git 操作 – 合并分支<br>git branch demo</p>
+<p>基于master分支创建一个demo分支用于演示<br>git checkout demo</p>
+<p>切换至demo分支<br>git branch –set-upstream-to=origin/demo demo</p>
+<p>将本地和远程分支关联起来<br>git merge dev</p>
+<p>将dev的变更合并至demo分支，此时相当于dev的变化commit到了本地仓库，所以下一步直接push即可<br>git push origin demo</p>
+<p>将本地操作提交至远程仓库<br>小结<br>Git鼓励大量使用分支：<br>查看分支：git branch<br>创建分支：git branch<br>切换分支：git checkout<br>创建+切换分支：git checkout -b<br>合并某分支到当前分支：git merge<br>删除分支：git branch -d<br>在这里插入图片描述</p>
+<p>小结<br>• 查看远程库信息，使用git remote -v;<br>• 本地新建的分支如果不推送到远程，对其他人就是不可见的;<br>• 从本地推送分支，使用git push origin branch-name，如果推送失败，用先git pull抓取远程的新提交;<br>• 在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致;<br>• 建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/branch-name;<br>• 从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
+]]></content>
+  </entry>
+</search>
